@@ -1,11 +1,10 @@
 <h1 align="center">Lotteria</h1>
 
-<p align="center" style="font-family: monospace">Monica Ciuchetti <a href="https://github.com/mciuchetti">@mciuchetti</a></p>
-<p align="center" style="font-family: monospace">Corso TPSIT <a href="https://www.avoltapg.edu.it/">ITTS A. Volta (PG)</a></p>
-<p align="center" style="font-family: monospace">Template del file README.md ispirato da <a href="https://github.com/matbagnoletti">@matbagnoletti</a></p>
+<p align="center" style="font-family: monospace">Cosenza Olga <a href="https://github.com/mciuchetti">@mciuchetti</a></p>
 
 ## Descrizione
 Applicazione Java per simulare l'estrazione di numeri random da inserire in una matrice e il successivo gioco di indovinare uno dei numeri estratti.
+Tramite Thread l'applicazione simula una contemporaneità dell'attività dei giocatori che devono indovinare il numero presente in matrice. L'id corrispondente viene inserito in un ArrayList.
 
 ## Obiettivi
 - Diagramma degli stati di un thread e transizioni	
@@ -17,5 +16,4 @@ Applicazione Java per simulare l'estrazione di numeri random da inserire in una 
 
 
 ## Osservazioni
-Il progetto è stato scritto per scopi didattici e ha solo lo scopo di far comprendere le proprietà della classe Thread. 
-Ad esso è associato il corrispondente <a href="https://drive.google.com/file/d/1DT6W73QeMnYEYUodcQ1hVpVY1DD0xCNv/view?usp=drive_link">diagramma delle classi</a>.
+Implementazione del metodo assegnaPunteggio da rivedere
