@@ -115,8 +115,5 @@ ArrayList<Integer> gVincenti = new ArrayList<Integer>();
     }
     }
 
-    /**
-     *
-     * Metodo per eseguire il thread
-     */
+    
   
