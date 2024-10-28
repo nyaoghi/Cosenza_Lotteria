@@ -1,6 +1,6 @@
 <h1 align="center">Lotteria</h1>
 
-<p align="center" style="font-family: monospace">Cosenza Olga <a href="https://github.com/mciuchetti">@mciuchetti</a></p>
+<p align="center" style="font-family: monospace">Cosenza Olga <a href="https://github.com/mciuchetti">@nyaoghi</a></p>
 
 ## Descrizione
 Applicazione Java per simulare l'estrazione di numeri random da inserire in una matrice e il successivo gioco di indovinare uno dei numeri estratti.
