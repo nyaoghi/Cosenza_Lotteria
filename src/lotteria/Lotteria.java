@@ -19,17 +19,17 @@ public class Lotteria {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         //avvio lotteria
-         System.out.println("Avvio Lotteria ");
-         
-          Scanner scanner = new Scanner(System.in);
+        System.out.println("Avvio Lotteria ");
+
+        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Inserisci il numero di righe: ");
         int rows = scanner.nextInt();
         System.out.print("Inserisci il numero di colonne: ");
         int columns = scanner.nextInt();
-        
+
         /*int N = scanner.nextInt();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
@@ -40,16 +40,17 @@ public class Lotteria {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-*/
+         */
         // Scelta del numero dei numeri da estrarre
         Estrazione e = new Estrazione(rows, columns);
         e.Matrice(rows, columns);
-        
+
         // Istanza ed avvio del thread Estrazione
         e.start();
         Giocatore g = new Giocatore(1, e);
         Giocatore g1 = new Giocatore(2, e);
         Giocatore g2 = new Giocatore(3, e);
+
 // Istanza di alcuni thread Giocatore
         g.start();
         g1.start();
@@ -59,19 +60,18 @@ public class Lotteria {
             g.join();
             g1.join();
             g2.join();
-            
+
             // Avvio dei thread Giocatori
             //il thread lotteria aspetta che il g1 (thread muoia)
-            
-            // Comunicazione fine gioco
         } catch (InterruptedException ex) {
             Logger.getLogger(Lotteria.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("errore nel join");
         }
-        // ex.printStackTrace(); da errore
-       
-        // Comunicazione fine gioco
+
         e.stampaVincitori();
+        e.assegnaPunteggio();
+
+        // Comunicazione fine gioco
         System.out.println("Fine Lotteria ");
     }
 }

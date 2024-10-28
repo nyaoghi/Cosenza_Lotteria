@@ -19,38 +19,37 @@ public class Estrazione extends Thread {
     // attributi
     private int numero;
     //private int vincitori[];
-private int rows;
-private     int columns;
-private int[][] matrice;
+    private int rows;
+    private int columns;
+    private int[][] matrice;
 // inizializzazione array vincitori
-ArrayList<Integer> gVincenti = new ArrayList<Integer>();
+    ArrayList<Integer> gVincenti = new ArrayList<Integer>();
+
     /**
      *
      * Metodo costruttore
      */
     public Estrazione(int rows, int columns) {
-        
-       //Commentino: ma il push va? 
-        
-       this.rows = rows;
-       this.columns  =columns;
-                   
-        }
- // popolamento matrice numeri estratti
-    public void Matrice(int rows, int columns){
+
+        //ultima ver
+        this.rows = rows;
+        this.columns = columns;
+
+    }
+    //inserimento numeri
+
+    public void Matrice(int rows, int columns) {
         matrice = new int[rows][columns];
-          
-            for (int i = 0; i < rows; i++) {
+
+        for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-               
+
                 Random random = new Random();
                 matrice[i][j] = random.nextInt(100);
             }
         }
-          stampaMatrice();
+        stampaMatrice();
     }
-    
-    
 
     /**
      *
@@ -64,8 +63,6 @@ ArrayList<Integer> gVincenti = new ArrayList<Integer>();
             System.out.println();
         }
     }
-         //ciclo della matrice + stampa 8/10 
-    
 
     /**
      *
@@ -73,7 +70,30 @@ ArrayList<Integer> gVincenti = new ArrayList<Integer>();
      */
     public void stampaVincitori() {
         // stampa array dei vincitori
+
         System.out.println("Vincitori: " + gVincenti);
+
+    }
+
+    public void assegnaPunteggio() {
+        int punteggio = 0;
+        for (int k = 0; k < gVincenti.size(); k++) {
+            if (gVincenti.get(k) != null) {
+                for (int i = 0; i < rows; i++) {
+                    for (int j = 0; j < columns; j++) {
+                        if (matrice[i][j] == numero) {
+                            punteggio = i * j;
+                            
+                            System.out.println("Giocatore" + gVincenti.get(k) + " Hai ottenuto un punteggio di " + punteggio);
+                            return;
+                        }
+                    }
+
+                }
+            } else {
+            }
+
+        }
     }
 
     /**
@@ -82,38 +102,30 @@ ArrayList<Integer> gVincenti = new ArrayList<Integer>();
      * vincitori
      */
     public void verifica(int numero, int idGiocatore) {
-       boolean flag= false;
-       
-       for(int i=0;i<rows;i++){
-           for(int j=0;j<columns;j++){
-               if(numero==matrice[i][j]){
-                   flag=true;
-                   System.out.println("Giocatore " + idGiocatore + " hai scelto il numero " + numero + " e hai vinto");
-                   while(gVincenti.size()<3){
-                       gVincenti.add(idGiocatore);
-                       return;
-                   }
-               }
-           }
-        }if(!flag){
-             System.out.println("Hai perso");
+
+        boolean flag = false;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (numero == matrice[i][j]) {
+                    flag = true;
+                    System.out.println("Giocatore " + idGiocatore + " hai scelto il numero " + numero + " e hai vinto");
+                    while (gVincenti.size() < 3) {
+                        gVincenti.add(idGiocatore);
+                        return;
+                    }
+                }
+            }
         }
+        if (!flag) {
+            System.out.println("Giocatore " + idGiocatore + " hai perso");
         }
-      /*  if (numero == this.numero) {
+
+    }
+}
+/*  if (numero == this.numero) {
             System.out.println("Giocatore " + idGiocatore + "hai scelto il numero " + numero + " e hai vinto");
         } else {
             System.out.println("Hai perso");
         }
-       */
-    
-      public void run() {
-    
-        // stampa iniziale
-        // estrazione dei numeri
-        // stampa matrice
-        // stampa finale
-    }
-    }
-
-    
-  
+ */

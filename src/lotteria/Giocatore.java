@@ -35,40 +35,40 @@ public class Giocatore extends Thread {
     }
 
     Random n = new Random();
+
     /**
      *
      * Metodo per eseguire il thread
      */
     public void run() {
 
-        System.out.println("ID giocatore:" + idGiocatore);
-        // scela del numero da giocare
-        int nScelto = n.nextInt(30);
-        
+        //System.out.println("ID giocatore:" + idGiocatore);
+        // scelta del numero da giocare
+        int nScelto = n.nextInt(50);
 
         //conto alla rovescia
         for (int i = 3; i > 0; i--) {
-             System.out.println(i);
+            System.out.println(i);
             try {
                 sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Giocatore.class.getName()).log(Level.SEVERE, null, ex);
-                System.err.println("errore sleep"); 
+                System.err.println("errore sleep");
             }
-             
-            
-           
+
         }
+        try {
+            // estrazione.verifica(nScelto, idGiocatore);
 
-        // verifica del risutlato
-        estrazione.verifica(nScelto, idGiocatore);
-        
-        
-       // estrazione.verifica(nScelto, idGiocatore);
-
-        // stampa fine verifica
+            // stampa fine verifica
+            sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Giocatore.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println("Giocatore ID: " + idGiocatore + " ho verificato il numero");
 
+        estrazione.verifica(nScelto, idGiocatore);
+
     } //morte del trhead 
-    
+
 }
